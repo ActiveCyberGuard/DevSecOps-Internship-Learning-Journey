@@ -45,7 +45,7 @@ Sonali Bank Limited
 ## Acknowledgement
 
 I would like to express my sincere gratitude to **Mr. Partha
-Pratim Bose, Senior Engineer (IT), Information Technology Division
+Pratim Bose Sir, Senior Engineer (IT), Information Technology Division
 (Business IT), Sonali Bank Limited**, for his valuable guidance,
 technical direction, mentorship, and continuous support throughout
 my internship learning journey.
@@ -164,7 +164,7 @@ repository.
 
 # Author
 
-**Md. Al-Amin**
+**MD.AL-AMIN**
 
 Business IT Intern  
 Sonali Bank PLC
