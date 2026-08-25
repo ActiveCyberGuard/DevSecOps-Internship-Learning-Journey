@@ -77,7 +77,12 @@ in a controlled laboratory environment:
 ```bash
 pwd
 
-5.2 List Files and Directories
-### Command
+** 5.2 Check Current Working Directory**
+
+##Command
+  
 ```bash
-ls
+sudo apt update
+sudo apt upgrade
+ls -la
+cd /etc/nginx
