@@ -63,46 +63,46 @@ whoami
 This command identifies the currently active Linux user.
 This command identifies the currently active Linux user.
 
-# Check User and Group Information
+Check User and Group Information
 id
 
-# This command displays user ID and group information.
+This command displays user ID and group information.
 
-# Check File Permissions
+Check File Permissions
 ls -l
 
-# This helps inspect file ownership and permissions.
+This helps inspect file ownership and permissions.
 
-# Change Permissions
+Change Permissions
 chmod 600 secret.txt
 
 This restricts access to the file owner.
 
-# Check Running Processes
+Check Running Processes
 ps
 
 or:
 
 top
-# Check a Service
+Check a Service
 systemctl status nginx
 
-# Check Logs
+Check Logs
 journalctl
-
-## Security Learning
+ 
+Security Learning
 
 I learned how Linux permissions, ownership, user accounts,
 groups, and least-privilege principles help control access
 to system resources.
 
-# Evidence
+Evidence
 
 Screenshots:
 
 screenshots/
 
-# Key Learning
+Key Learning
 
 I learned how to perform basic Linux administration and
 inspect system users, permissions, processes, services,
