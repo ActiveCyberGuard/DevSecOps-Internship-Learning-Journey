@@ -76,3 +76,8 @@ in a controlled laboratory environment:
 
 ```bash
 pwd
+
+5.2 List Files and Directories
+### Command
+```bash
+ls
