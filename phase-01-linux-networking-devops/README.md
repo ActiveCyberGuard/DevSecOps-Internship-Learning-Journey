@@ -2,18 +2,26 @@
 
 ## Overview
 
-Phase 1 focuses on developing a practical foundation in
-Linux administration, networking, Bash automation, web servers,
-Nginx, troubleshooting, and basic DevOps concepts.
+Phase 1 focuses on building practical foundations in Linux
+administration, Bash automation, networking, web servers,
+Nginx, troubleshooting, and DevOps fundamentals.
 
 ---
 
-## Daily Learning Plan
+## Learning Objectives
+
+The main objective is to understand how to operate,
+configure, monitor, troubleshoot, and secure a Linux-based
+server environment.
+
+---
+
+## Learning Modules
 
 | Day | Topic | Practical Focus |
 |---|---|---|
 | Day 01 | Linux Foundations | Linux administration |
-| Day 02 | Bash & Automation | Automation scripts |
+| Day 02 | Bash & Automation | Automation and health checks |
 | Day 03 | Networking Fundamentals | Network troubleshooting |
 | Day 04 | Web/Server Fundamentals | Nginx and reverse proxy |
 | Day 05 | DevOps Foundations | Secure Linux Web Host |
@@ -22,24 +30,43 @@ Nginx, troubleshooting, and basic DevOps concepts.
 
 ## Learning Method
 
-**Learn → Practice → Build → Break Safely → Diagnose → Fix → Document**
+**Learn → Practice → Implement → Troubleshoot → Fix → Document**
 
 ---
 
-## Final Project
+# Final Practical Project
 
-### Secure Linux Web Host
+## Secure Linux Web Host
 
-The final project combines:
+The final practical project combines the major concepts learned
+during Phase 1.
 
-- Linux
-- Networking
-- Bash
+### Main Components
+
+- Linux server
+- Users and permissions
 - SSH
+- Networking
 - Nginx
 - Reverse proxy
 - Service monitoring
-- Health-check automation
-- Logging
+- Bash health-check automation
+- Logs
 - Troubleshooting
 - Documentation
+
+---
+
+## Evidence
+
+Screenshots, scripts, configuration files, troubleshooting
+notes, and architecture documentation are maintained inside
+the corresponding daily directories.
+
+---
+
+## Key Outcome
+
+By completing Phase 1, I developed practical understanding
+of Linux administration, networking, web-server operation,
+automation, monitoring, troubleshooting, and basic security.
