@@ -34,35 +34,6 @@ The learning approach is:
 
 ---
 
-## Repository Structure
-
-Click any folder or file below to open it directly.
-
-```
-DevSecOps-Internship-Learning-Journey/
-│
-├── phase-01-linux-networking-devops/
-│
-├── phase-02-git-version-control/
-│
-├── phase-03-docker-containerization/
-│   ├── day-10-containers-fundamentals/
-│   ├── day-11-dockerfiles/
-│   ├── day-12-docker-compose/
-│   ├── day-13-container-security/
-│   └── day-14-final-project/
-│
-├── phase-04-cicd/
-├── phase-05-cloud-infrastructure/
-├── phase-06-iac-configuration/
-├── phase-07-kubernetes-helm/
-├── phase-08-devsecops-appsec/
-├── phase-09-supply-chain-compliance/
-├── phase-10-monitoring-logging-incident-response/
-├── phase-11-advanced-devsecops/
-└── phase-12-final-capstone/
-```
-
 | Phase | Folder |
 |---|---|
 | Phase 1 — Linux, Networking & DevOps Fundamentals | [phase-01-linux-networking-devops/](./phase-01-linux-networking-devops/) |
@@ -78,17 +49,7 @@ DevSecOps-Internship-Learning-Journey/
 | Phase 11 — Advanced DevSecOps | [phase-11-advanced-devsecops/](./phase-11-advanced-devsecops/) |
 | Phase 12 — Final Production-Style Capstone | [phase-12-final-capstone/](./phase-12-final-capstone/) |
 
-### Phase 3 — Day-by-Day Breakdown
-
-| Day | Topic | Folder |
-|---|---|---|
-| Day 10 | Containers Fundamentals | [day-10-containers-fundamentals/](./phase-03-docker-containerization/day-10-containers-fundamentals/) |
-| Day 11 | Dockerfiles | [day-11-dockerfiles/](./phase-03-docker-containerization/day-11-dockerfiles/) |
-| Day 12 | Docker Compose | [day-12-docker-compose/](./phase-03-docker-containerization/day-12-docker-compose/) |
-| Day 13 | Container Security | [day-13-container-security/](./phase-03-docker-containerization/day-13-container-security/) |
-| Day 14 | Final Project | [day-14-final-project/](./phase-03-docker-containerization/day-14-final-project/) |
-
----
+ ---
 
 ## Internship Information
 
@@ -99,8 +60,8 @@ DevSecOps-Internship-Learning-Journey/
 ### Internship Guide
 
 **Mr. Partha Pratim Bose**
-Senior Engineer (IT)
-Information Technology Division (Business IT)
+Senior Engineer (IT),
+Information Technology Division (Business IT),
 Sonali Bank Limited
 
 ---
