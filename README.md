@@ -60,8 +60,14 @@ The learning approach is:
 ### Internship Guide
 
 **Mr. Partha Pratim Bose**
-Senior Engineer (IT),
-Information Technology Division (Business IT),
+
+
+Senior Engineer (IT)
+
+
+Information Technology Division (Business IT)
+
+
 Sonali Bank Limited
 
 ---
@@ -182,13 +188,7 @@ Topics include:
 - Capabilities and resource limits
 - Vulnerability scanning with Trivy
 
-| Day | Topic | Folder |
-|---|---|---|
-| Day 10 | Containers Fundamentals | [Open ↗](./phase-03-docker-containerization/day-10-containers-fundamentals/) |
-| Day 11 | Dockerfiles | [Open ↗](./phase-03-docker-containerization/day-11-dockerfiles/) |
-| Day 12 | Docker Compose | [Open ↗](./phase-03-docker-containerization/day-12-docker-compose/) |
-| Day 13 | Container Security | [Open ↗](./phase-03-docker-containerization/day-13-container-security/) |
-| Day 14 | Final Project | [Open ↗](./phase-03-docker-containerization/day-14-final-project/) |
+ 
 
 ### Final Practical Project
 **Secure Containerized Application** · 📂 [Open project folder](./phase-03-docker-containerization/day-14-final-project/)
@@ -416,5 +416,9 @@ repository.
 # Author
 
 **MD. AL-AMIN**
+
+
 Business IT Intern
+
+
 Sonali Bank PLC
