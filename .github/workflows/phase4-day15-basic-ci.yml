@@ -36,4 +36,4 @@ jobs:
       - name: Run tests
         run: |
           cd phase-04-cicd/day-15-cicd-fundamentals
-          pytest
+          PYTHONPATH=. pytest
