@@ -1,0 +1,56 @@
+name: Phase 4 - Day 17 - Quality Gate
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "phase-04-cicd/day-17-quality-gates/**"
+      - ".github/workflows/phase4-day17-quality-gate.yml"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "phase-04-cicd/day-17-quality-gates/**"
+      - ".github/workflows/phase4-day17-quality-gate.yml"
+
+jobs:
+  quality:
+    name: Test Lint Coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          cd phase-04-cicd/day-17-quality-gates
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          cd phase-04-cicd/day-17-quality-gates
+          PYTHONPATH=. pytest
+
+      - name: Run lint
+        run: |
+          cd phase-04-cicd/day-17-quality-gates
+          flake8 app tests
+
+      - name: Generate coverage
+        run: |
+          cd phase-04-cicd/day-17-quality-gates
+          PYTHONPATH=. pytest --cov=app --cov-report=term-missing --cov-report=xml
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: day17-coverage-report
+          path: phase-04-cicd/day-17-quality-gates/coverage.xml
