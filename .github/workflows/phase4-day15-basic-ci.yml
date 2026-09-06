@@ -1,0 +1,39 @@
+name: Phase 4 - Day 15 - Basic CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "phase-04-cicd/day-15-cicd-fundamentals/**"
+      - ".github/workflows/phase4-day15-basic-ci.yml"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "phase-04-cicd/day-15-cicd-fundamentals/**"
+      - ".github/workflows/phase4-day15-basic-ci.yml"
+
+jobs:
+  test:
+    name: Run Python Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r phase-04-cicd/day-15-cicd-fundamentals/requirements.txt
+
+      - name: Run tests
+        run: |
+          cd phase-04-cicd/day-15-cicd-fundamentals
+          pytest
