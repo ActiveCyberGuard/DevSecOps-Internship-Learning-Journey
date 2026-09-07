@@ -1,0 +1,41 @@
+name: Phase 4 - Day 19 - Deployment
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "phase-04-cicd/day-19-deployment-rollback/**"
+      - ".github/workflows/phase4-day19-deployment.yml"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "phase-04-cicd/day-19-deployment-rollback/**"
+      - ".github/workflows/phase4-day19-deployment.yml"
+
+jobs:
+  staging:
+    name: Staging Deployment Simulation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build staging image
+        run: |
+          docker build \
+            -t staging-app:${{ github.sha }} \
+            phase-04-cicd/day-19-deployment-rollback
+
+      - name: Deployment
+        run: |
+          echo "Deploying version ${{ github.sha }}"
+          echo "Staging deployment successful"
+
+      - name: Health check
+        run: |
+          echo "Running health check..."
+          echo "Application is healthy"

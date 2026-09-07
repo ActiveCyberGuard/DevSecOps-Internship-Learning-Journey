@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    container_name: staging-app
+    ports:
+      - "5001:5000"
+    restart: unless-stopped
