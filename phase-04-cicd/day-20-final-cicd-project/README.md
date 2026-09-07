@@ -599,23 +599,23 @@ Rollback
 
 ### Local Tests
 
-![Local Tests](screenshots/16-day20-local-tests.png)
+ 
 
 ### Docker Build
 
-![Docker Build](screenshots/17-day20-docker-build.png)
+ 
 
 ### Container Running
 
-![Container Running](screenshots/18-day20-container-running.png)
+ 
 
 ### Health Check
 
-![Health Check](screenshots/19-day20-health-check.png)
+ 
 
 ### API Response
 
-![API Response](screenshots/20-day20-api-response.png)
+ 
 
 ---
 
