@@ -1,4 +1,3 @@
-
 name: Phase 4 - Day 20 - Secure End-to-End CI/CD
 
 on:
@@ -16,15 +15,9 @@ on:
       - "phase-04-cicd/day-20-final-cicd-project/**"
       - ".github/workflows/phase4-day20-final-cicd.yml"
 
-
 permissions:
   contents: read
   packages: write
-
-
-# ============================================================
-# 1. APPLICATION TESTS
-# ============================================================
 
 jobs:
 
@@ -33,7 +26,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -52,17 +44,12 @@ jobs:
           PYTHONPATH=. pytest
 
 
-# ============================================================
-# 2. CODE QUALITY / LINT
-# ============================================================
-
   lint:
     name: Code Quality
     runs-on: ubuntu-latest
     needs: test
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -80,10 +67,6 @@ jobs:
           flake8 phase-04-cicd/day-20-final-cicd-project/app
 
 
-# ============================================================
-# 3. DOCKER BUILD
-# ============================================================
-
   build:
     name: Docker Build
     runs-on: ubuntu-latest
@@ -92,7 +75,6 @@ jobs:
       - lint
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -103,17 +85,12 @@ jobs:
             phase-04-cicd/day-20-final-cicd-project
 
 
-# ============================================================
-# 4. CONTAINER SECURITY SCAN
-# ============================================================
-
   scan:
     name: Container Security Scan
     runs-on: ubuntu-latest
     needs: build
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -133,10 +110,6 @@ jobs:
           severity: CRITICAL,HIGH
 
 
-# ============================================================
-# 5. PUBLISH IMAGE TO GITHUB CONTAINER REGISTRY
-# ============================================================
-
   publish:
     name: Publish Container Image
     runs-on: ubuntu-latest
@@ -144,9 +117,12 @@ jobs:
     if: github.event_name == 'push'
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set lowercase image name
+        run: |
+          echo "IMAGE_NAME=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/devsecops-demo:${GITHUB_SHA}" >> "$GITHUB_ENV"
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
@@ -158,18 +134,13 @@ jobs:
       - name: Build image
         run: |
           docker build \
-            -t ghcr.io/${{ github.repository_owner }}/devsecops-demo:${{ github.sha }} \
+            -t "$IMAGE_NAME" \
             phase-04-cicd/day-20-final-cicd-project
 
       - name: Push image
         run: |
-          docker push \
-            ghcr.io/${{ github.repository_owner }}/devsecops-demo:${{ github.sha }}
+          docker push "$IMAGE_NAME"
 
-
-# ============================================================
-# 6. STAGING DEPLOYMENT
-# ============================================================
 
   staging:
     name: Staging Deployment
@@ -178,7 +149,6 @@ jobs:
     if: github.event_name == 'push'
 
     steps:
-
       - name: Deploy to staging
         run: |
           echo "================================="
@@ -186,7 +156,7 @@ jobs:
           echo "================================="
 
           echo "Image:"
-          echo "ghcr.io/${{ github.repository_owner }}/devsecops-demo:${{ github.sha }}"
+          echo "ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/devsecops-demo:${GITHUB_SHA}"
 
           echo "Deployment successful"
 
@@ -201,10 +171,6 @@ jobs:
           echo "Application is healthy"
 
 
-# ============================================================
-# 7. ROLLBACK
-# ============================================================
-
   rollback:
     name: Rollback
     runs-on: ubuntu-latest
@@ -212,7 +178,6 @@ jobs:
     if: failure()
 
     steps:
-
       - name: Rollback deployment
         run: |
           echo "================================="
