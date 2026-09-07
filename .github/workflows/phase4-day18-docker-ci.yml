@@ -1,0 +1,31 @@
+name: Phase 4 - Day 18 - Docker CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "phase-04-cicd/day-18-container-cicd/**"
+      - ".github/workflows/phase4-day18-docker-ci.yml"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "phase-04-cicd/day-18-container-cicd/**"
+      - ".github/workflows/phase4-day18-docker-ci.yml"
+
+jobs:
+  docker-build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            -t devsecops-container:${{ github.sha }} \
+            phase-04-cicd/day-18-container-cicd
