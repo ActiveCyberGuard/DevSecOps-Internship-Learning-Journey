@@ -1,0 +1,39 @@
+name: Project 01 - Basic Python CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "phase-04-cicd/projects/project-01-basic-python-ci/**"
+      - ".github/workflows/project01-basic-python-ci.yml"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "phase-04-cicd/projects/project-01-basic-python-ci/**"
+      - ".github/workflows/project01-basic-python-ci.yml"
+
+jobs:
+  test:
+    name: Python Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Dependencies
+        run: |
+          pip install -r phase-04-cicd/projects/project-01-basic-python-ci/requirements.txt
+
+      - name: Run Tests
+        run: |
+          cd phase-04-cicd/projects/project-01-basic-python-ci
+          PYTHONPATH=. pytest

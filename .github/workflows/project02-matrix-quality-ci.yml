@@ -1,0 +1,52 @@
+name: Project 02 - Matrix Quality CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "phase-04-cicd/projects/project-02-matrix-quality-ci/**"
+      - ".github/workflows/project02-matrix-quality-ci.yml"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "phase-04-cicd/projects/project-02-matrix-quality-ci/**"
+      - ".github/workflows/project02-matrix-quality-ci.yml"
+
+jobs:
+  quality:
+    name: Python ${{ matrix.python-version }}
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version:
+          - "3.10"
+          - "3.11"
+          - "3.12"
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Dependencies
+        run: |
+          pip install -r phase-04-cicd/projects/project-02-matrix-quality-ci/requirements.txt
+
+      - name: Run Tests
+        run: |
+          cd phase-04-cicd/projects/project-02-matrix-quality-ci
+          PYTHONPATH=. pytest
+
+      - name: Run Flake8
+        run: |
+          flake8 phase-04-cicd/projects/project-02-matrix-quality-ci/app
+          flake8 phase-04-cicd/projects/project-02-matrix-quality-ci/tests
