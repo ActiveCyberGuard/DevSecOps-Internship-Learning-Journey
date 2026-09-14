@@ -1,19 +1,21 @@
 # Internship Learning Journey
 ## Sonali Bank PLC — Information Technology Division (Business IT)
 
-![Internship](https://img.shields.io/badge/Internship-Business%20IT-blue)
-![Phase 1](https://img.shields.io/badge/Phase%201-Linux%20%26%20Networking-green)
-![Phase 2](https://img.shields.io/badge/Phase%202-Git%20%26%20GitHub-orange)
-![Phase 3](https://img.shields.io/badge/Phase%203-Docker-blueviolet)
-![Phase 4](https://img.shields.io/badge/Phase%204-CI%2FCD-yellow)
-![Phase 5](https://img.shields.io/badge/Phase%205-Cloud%20%26%20Infra-lightgrey)
-![Phase 6](https://img.shields.io/badge/Phase%206-IaC%20%26%20Config-informational)
-![Phase 7](https://img.shields.io/badge/Phase%207-Kubernetes%20%26%20Helm-blue)
-![Phase 8](https://img.shields.io/badge/Phase%208-App%20Security-red)
-![Phase 9](https://img.shields.io/badge/Phase%209-Supply%20Chain-critical)
-![Phase 10](https://img.shields.io/badge/Phase%2010-Monitoring%20%26%20IR-success)
-![Phase 11](https://img.shields.io/badge/Phase%2011-Advanced%20DevSecOps-9cf)
-![Phase 12](https://img.shields.io/badge/Phase%2012-Capstone-brightgreen)
+[![Internship](https://img.shields.io/badge/Internship-Business%20IT-blue)](./)
+
+[![Phase 1](https://img.shields.io/badge/Phase%201-Linux%20%26%20Networking-green)](./phase-01-linux-networking-devops/)
+[![Phase 2](https://img.shields.io/badge/Phase%202-Git%20%26%20GitHub-orange)](./phase-02-git-version-control/)
+[![Phase 3](https://img.shields.io/badge/Phase%203-Docker-blueviolet)](./phase-03-docker-containerization/)
+[![Phase 4](https://img.shields.io/badge/Phase%204-CI%2FCD-yellow)](./phase-04-cicd/)
+[![Phase 5](https://img.shields.io/badge/Phase%205-Cloud%20%26%20Infra-lightgrey)](./phase-05-cloud-infrastructure/)
+[![Phase 6](https://img.shields.io/badge/Phase%206-IaC%20%26%20Config-informational)](./phase-06-iac-configuration/)
+[![Phase 7](https://img.shields.io/badge/Phase%207-Kubernetes%20%26%20Helm-blue)](./phase-07-kubernetes-helm/)
+[![Phase 8](https://img.shields.io/badge/Phase%208-App%20Security-red)](./phase-08-devsecops-appsec/)
+[![Phase 9](https://img.shields.io/badge/Phase%209-Supply%20Chain-critical)](./phase-09-supply-chain-compliance/)
+[![Phase 10](https://img.shields.io/badge/Phase%2010-Monitoring%20%26%20IR-success)](./phase-10-monitoring-logging-incident-response/)
+[![Phase 11](https://img.shields.io/badge/Phase%2011-Advanced%20DevSecOps-9cf)](./phase-11-advanced-devsecops/)
+[![Phase 12](https://img.shields.io/badge/Phase%2012-Capstone-brightgreen)](./phase-12-final-capstone/)
+
 
 ---
 
