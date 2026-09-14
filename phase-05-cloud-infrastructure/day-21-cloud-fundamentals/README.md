@@ -1,103 +1,37 @@
-# Day 21 — Cloud Fundamentals ☁️
+# Day 21 — Cloud Fundamentals
 
-## 📌 Objective
+## 📚 What I Learned
 
-The objective of this module was to develop a practical understanding of fundamental cloud computing concepts and map common infrastructure components to AWS services.
+* Cloud computing fundamentals
+* AWS Regions and Availability Zones
+* Compute and storage concepts
+* Basic cloud networking
+* IAM fundamentals
+* Shared Responsibility Model
+* AWS concepts with local Linux/Docker environment mapping
+* Basic AWS CLI usage
 
-## 📚 Topics Covered
+## 🛠️ Tools Used
 
-- Cloud Computing
-- IaaS, PaaS and SaaS
-- AWS Regions
-- Availability Zones
-- Compute
-- Storage
-- Networking
-- Identity and Access Management (IAM)
-- Shared Responsibility Model
-- Cloud Cost Awareness
+* AWS CLI
+* Ubuntu Server
+* Docker
+* Linux CLI
 
-## ☁️ Cloud Service Models
+## 💻 Commands Used
 
-### IaaS (Infrastructure as a Service)
-Provides virtualized infrastructure such as compute, storage and networking.
+| Command                       | Purpose                                |
+| ----------------------------- | -------------------------------------- |
+| `aws --version`               | Check AWS CLI installation and version |
+| `aws sts get-caller-identity` | Check current AWS identity/account     |
+| `aws configure get region`    | Check configured AWS region            |
+| `uname -a`                    | View Linux system/kernel information   |
+| `docker --version`            | Check Docker installation and version  |
+| `docker info`                 | View Docker environment information    |
 
-### PaaS (Platform as a Service)
-Provides a managed platform for running applications without managing the underlying infrastructure directly.
+## 🔑 Key Takeaways
 
-### SaaS (Software as a Service)
-Provides complete software applications through a service model.
-
-## 🗺️ AWS Core Concepts
-
-| Infrastructure Concept | AWS Example |
-|---|---|
-| Compute | EC2 |
-| Object Storage | S3 |
-| Networking | VPC |
-| Identity | IAM |
-| Monitoring | CloudWatch |
-
-## 🌍 Region
-
-An AWS Region is a geographical area containing multiple Availability Zones.
-
-## 🏢 Availability Zone
-
-An Availability Zone is an isolated location within an AWS Region that provides infrastructure for workloads.
-
-## 🔐 Shared Responsibility Model
-
-Cloud security responsibilities are divided between the cloud provider and the customer.
-
-- **Provider** — responsible for the security *of* the cloud.
-- **Customer** — responsible for the security *in* the cloud, i.e. the resources and configurations they control.
-
-## 💻 Practical Commands
-
-```bash
-aws --version
-aws sts get-caller-identity
-aws configure get region
-```
-
-## 🛡️ Security Practices
-
-- Never commit AWS credentials to Git.
-- Use least-privilege permissions.
-- Avoid unnecessary cloud resources.
-- Review cloud costs regularly.
-- Prefer local labs when a cloud resource is not required.
-
-## 🧩 Troubleshooting
-
-### Problem
-The AWS CLI could not identify the configured credentials.
-
-### Diagnosis
-Checked the AWS CLI configuration and identity.
-
-### Verification
-```bash
-aws sts get-caller-identity
-```
-
-### Result
-The AWS identity was verified successfully after correcting the CLI configuration.
-
-### Evidence
-The following evidence was collected:
-
-- AWS CLI version
-- AWS identity verification
-- AWS region configuration
-
-> Screenshots are stored in the [`screenshots/`](./screenshots) directory.
-
-## 🎯 Outcome
-
-Developed a basic understanding of cloud architecture and learned how common infrastructure concepts map to AWS services.
-
-
-
- 
+* Understood the basic structure of cloud infrastructure.
+* Learned how Regions and Availability Zones provide geographic and infrastructure isolation.
+* Understood the difference between compute, storage, networking and IAM.
+* Learned how local Linux/Docker environments can be used to practice cloud concepts.
