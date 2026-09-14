@@ -1,120 +1,83 @@
-# Day 24 — Cloud Compute and Storage 💾
+# Day 24 — Cloud Compute & Storage
 
-## 📌 Objective
+## 📚 What I Learned
 
-The objective of this module was to understand cloud compute, storage, configuration, backup and recovery concepts.
+* Compute workload lifecycle
+* VM/compute environment concepts
+* Starting and stopping workloads
+* Docker-based workload deployment
+* Storage and application data
+* Backup creation
+* Backup verification
+* Data loss simulation
+* Data restoration and recovery
+* Importance of testing backup/restore procedures
 
-## 📚 Topics Covered
+## 🛠️ Tools Used
 
-- Virtual Machines
-- EC2 Concepts
-- Compute Lifecycle
-- Object Storage
-- S3 Concepts
-- Configuration and Secrets
-- Backup
-- Restore
-- Recovery
+* Ubuntu Server
+* Docker
+* Nginx
+* Linux CLI
+* `tar`
+* File system utilities
 
-## 🔄 Compute Lifecycle
+## 💻 Commands Used
+
+### System / Compute
+
+| Command    | Purpose                                  |
+| ---------- | ---------------------------------------- |
+| `hostname` | Check system hostname                    |
+| `uname -a` | View system/kernel information           |
+| `uptime`   | Check system uptime and load information |
+
+### Workload Lifecycle
+
+| Command                                          | Purpose                             |
+| ------------------------------------------------ | ----------------------------------- |
+| `docker run -d --name compute-demo nginx:alpine` | Create and run an Nginx workload    |
+| `docker ps`                                      | View running containers             |
+| `docker stop compute-demo`                       | Stop the workload                   |
+| `docker ps -a`                                   | View running and stopped containers |
+| `docker start compute-demo`                      | Start the stopped workload          |
+| `docker logs compute-demo`                       | Check workload/container logs       |
+
+### Storage & Backup
+
+| Command                                                 | Purpose                        |
+| ------------------------------------------------------- | ------------------------------ |
+| `mkdir -p labs/test-data`                               | Create test data directory     |
+| `echo "DevSecOps backup test" > labs/test-data/app.txt` | Create sample application data |
+| `cat labs/test-data/app.txt`                            | Verify stored data             |
+| `tar -czf backup.tar.gz labs/test-data/`                | Create compressed backup       |
+| `ls -lh backup.tar.gz`                                  | Verify backup file and size    |
+| `tar -tzf backup.tar.gz`                                | Inspect backup contents        |
+| `rm -rf labs/test-data`                                 | Simulate data loss             |
+| `tar -xzf backup.tar.gz`                                | Restore data from backup       |
+| `cat labs/test-data/app.txt`                            | Verify restored data           |
+
+## 🔄 Recovery Workflow
 
 ```text
-Launch
-   ↓
-Running
-   ↓
-Stop
-   ↓
-Start
-   ↓
-Terminate
+Create Data
+    ↓
+Create Backup
+    ↓
+Verify Backup
+    ↓
+Simulate Data Loss
+    ↓
+Restore Backup
+    ↓
+Verify Recovery
 ```
 
-## 🖥️ EC2
+## 🔑 Key Takeaways
 
-Amazon EC2 provides virtual machine compute capacity in AWS.
-
-The lifecycle of a virtual machine should be managed carefully to avoid unnecessary resource usage and cost.
-
-## 📦 Object Storage
-
-Object storage is designed for storing objects such as:
-
-- Application files
-- Build artifacts
-- Backups
-- Static assets
-
-Amazon S3 is an example of object storage.
-
-## 🧪 Backup and Restore Lab
-
-A local backup and restore lab was performed to demonstrate basic recovery.
-
-### 1. Create Test Data
-
-```bash
-mkdir -p labs/test-data
-echo "DevSecOps backup test" > labs/test-data/app.txt
-```
-
-### 2. Create Backup
-
-```bash
-tar -czf backup.tar.gz labs/test-data/
-```
-
-### 3. Verify Backup
-
-```bash
-tar -tzf backup.tar.gz
-```
-
-### 4. Remove Original Data
-
-```bash
-rm -rf labs/test-data
-```
-
-### 5. Restore Data
-
-```bash
-tar -xzf backup.tar.gz
-```
-
-### 6. Verify Restoration
-
-```bash
-cat labs/test-data/app.txt
-```
-
-### ✅ Recovery Result
-
-The test data was successfully restored from the backup archive.
-
-## 🛡️ Security Considerations
-
-- Protect backup data.
-- Restrict backup access.
-- Never store secrets in Git.
-- Test restoration regularly.
-- Remove unnecessary cloud resources.
-
-## 🧾 Evidence
-
-Screenshots include:
-
-- Compute resource
-- Storage resource
-- Test data
-- Backup creation
-- Data deletion
-- Successful restoration
-
-> Screenshots are stored in the [`screenshots/`](./screenshots) directory.
-
-## 🎯 Outcome
-
-Learned basic cloud compute and storage concepts and demonstrated a working backup and restore procedure.
-
- 
+* Learned the basic compute/workload lifecycle.
+* Practiced deploying and managing a containerized workload.
+* Learned how to create and verify backups.
+* Simulated data loss safely.
+* Restored deleted data from a backup.
+* Understood that backup is only useful when restoration is tested.
