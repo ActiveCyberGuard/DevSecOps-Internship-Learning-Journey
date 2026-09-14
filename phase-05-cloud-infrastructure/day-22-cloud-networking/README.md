@@ -1,121 +1,49 @@
-# Day 22 — Cloud Networking 🌐
+# Day 22 — Cloud Networking
 
-## 📌 Objective
+## 📚 What I Learned
 
-The objective of this module was to understand cloud networking concepts and design a least-exposure network architecture.
+* VPC and subnet concepts
+* Public and private network architecture
+* Route tables and routing
+* Security Groups and firewall concepts
+* Network traffic flow
+* DNS resolution
+* Port connectivity
+* Basic network troubleshooting
+* Least-exposure network architecture
 
-## 📚 Topics Covered
+## 🛠️ Tools Used
 
-- VPC
-- Subnets
-- Public Subnets
-- Private Subnets
-- Route Tables
-- Internet Gateway
-- Security Groups
-- Network Traffic Flow
-- Public vs Private Architecture
+* Ubuntu Server
+* Linux Networking Tools
+* UFW Firewall
+* Nginx / Reverse Proxy concepts
+* `iproute2`
+* `ss`
+* `curl`
+* `ping`
+* `netcat`
+* `nslookup` / `dig`
 
-## 🏗️ Network Architecture
+## 💻 Commands Used
 
-```text
-Internet
-    |
-    v
-Internet Gateway
-    |
-    v
-Public Subnet
-    |
-    v
-Reverse Proxy
-    |
-    v
-Private Application Subnet
-    |
-    v
-Private Database Subnet
-```
+| Command                       | Purpose                                  |
+| ----------------------------- | ---------------------------------------- |
+| `ip addr`                     | View IP addresses and network interfaces |
+| `ip route`                    | View routing table and default gateway   |
+| `ss -tuln`                    | Check listening TCP/UDP ports            |
+| `nslookup example.com`        | Test DNS resolution                      |
+| `dig example.com`             | Detailed DNS lookup                      |
+| `curl -I https://example.com` | Check HTTP response headers              |
+| `ping -c 4 8.8.8.8`           | Test basic network connectivity          |
+| `nc -zv example.com 80`       | Test TCP port connectivity               |
+| `sudo ufw status`             | Check firewall status                    |
+| `sudo ufw status numbered`    | View firewall rules with numbers         |
 
-## 🖧 VPC
+## 🔑 Key Takeaways
 
-A Virtual Private Cloud provides an isolated logical network for cloud resources.
-
-## 🌍 Public Subnet
-
-A public subnet is designed for resources that require controlled internet connectivity.
-
-**Example:**
-- Reverse proxy
-- Load balancer
-
-## 🔒 Private Subnet
-
-A private subnet is used for resources that should not be directly exposed to the public internet.
-
-**Example:**
-- Application servers
-- Databases
-
-## 🗺️ Route Table
-
-A route table controls where network traffic is directed.
-
-## 🌐 Internet Gateway
-
-An Internet Gateway provides connectivity between a VPC and the internet when routing and security rules allow it.
-
-## 🛡️ Security Groups
-
-Security groups control allowed inbound and outbound traffic for supported cloud resources.
-
-## 💻 Linux Networking Commands
-
-```bash
-ip addr
-ip route
-ss -tuln
-ping 8.8.8.8
-curl -I https://example.com
-dig example.com
-```
-
-## 🧩 Traffic Troubleshooting
-
-When network connectivity fails, check:
-
-1. IP configuration
-2. Routing table
-3. Listening service
-4. Security rules
-5. Network path
-6. DNS resolution
-
-## 🔐 Security Design
-
-- The database and application layers should not be directly exposed to the public internet.
-- Only the required public-facing component should be reachable from the internet.
-
-## 🧾 Evidence
-
-Screenshots include:
-
-- IP configuration
-- Routing table
-- Listening ports
-- DNS resolution
-- HTTP response
-- VPC configuration
-- Subnet configuration
-- Route table
-- Security group
-
-> Screenshots are stored in the [`screenshots/`](./screenshots) directory.
-
-## 🎯 Outcome
-
-Learned how cloud network boundaries, routing and security controls can be used to design a least-exposure architecture.
-
- 
-
- 
+* Learned how network traffic moves through interfaces and routing tables.
+* Practiced DNS, HTTP and TCP connectivity testing.
+* Learned how firewall rules control network access.
+* Designed a public reverse-proxy and private application architecture.
+* Understood why databases should remain in a restricted/private network.
