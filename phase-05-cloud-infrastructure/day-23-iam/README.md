@@ -1,103 +1,50 @@
-# Day 23 — Identity and Access Management 🔑
+# Day 23 — IAM & Least Privilege
 
-## 📌 Objective
+## 📚 What I Learned
 
-The objective of this module was to understand cloud identity, roles, policies and least-privilege access control.
+* IAM fundamentals
+* Users and groups
+* Roles and policies
+* Access permissions
+* Allowed vs denied actions
+* Least Privilege Principle
+* Linux users/groups as a local IAM concept
+* File ownership and permissions
 
-## 📚 Topics Covered
+## 🛠️ Tools Used
 
-- IAM Users
-- IAM Roles
-- IAM Policies
-- Permissions
-- Temporary Credentials
-- Least Privilege
-- Allow and Deny
-- Resource-level Permissions
+* Ubuntu Server
+* Linux User Management
+* Linux File Permissions
+* AWS IAM concepts
+* JSON
 
-## 🧩 IAM Model
+## 💻 Commands Used
 
-```text
-Identity
-   |
-   v
-Policy
-   |
-   v
-Permission
-   |
-   v
-AWS Resource
-```
+| Command                                | Purpose                             |
+| -------------------------------------- | ----------------------------------- |
+| `sudo adduser developer`               | Create a new Linux user             |
+| `sudo addgroup appteam`                | Create a new group                  |
+| `sudo usermod -aG appteam developer`   | Add user to group                   |
+| `groups developer`                     | Check user's group membership       |
+| `mkdir project`                        | Create a project/resource directory |
+| `chmod 750 project`                    | Apply restricted file permissions   |
+| `sudo chown developer:appteam project` | Set owner and group                 |
+| `ls -ld project`                       | Verify ownership and permissions    |
 
-## 👤 IAM User
+## 🔐 IAM Policy Practice
 
-An IAM user represents an identity that can interact with AWS resources according to assigned permissions.
+Created a sample IAM policy demonstrating:
 
-## 🎭 IAM Role
+* `s3:ListBucket`
+* `s3:GetObject`
 
-An IAM role provides permissions that can be assumed by trusted identities or services.
+The policy intentionally does not provide unnecessary permissions such as delete or administrative access.
 
-Roles are useful for workload access without embedding long-lived credentials inside applications.
+## 🔑 Key Takeaways
 
-## 📜 IAM Policy
-
-A policy defines which actions are allowed or denied on specific resources.
-
-## ⚖️ Least Privilege
-
-Least privilege means providing only the permissions required to perform a specific task.
-
-### Example
-
-A deployment workload may only require permission to read deployment artifacts from a specific storage location.
-
-Instead of:
-
-```json
-"Allow *"
-```
-
-the policy should grant only the required actions and resources.
-
-### Example Policy
-
-The [`policies/deployment-policy.json`](./policies/deployment-policy.json) file contains an example policy for reading deployment artifacts.
-
-## 🛡️ Security Principles
-
-- Grant only required permissions.
-- Avoid wildcard permissions when possible.
-- Prefer roles for workloads.
-- Avoid long-lived credentials.
-- Never commit real credentials.
-- Review permissions regularly.
-
-## 🔍 Permission Review
-
-For every permission evaluated:
-
-1. Who needs access?
-2. What action is required?
-3. Which resource is required?
-4. Why is the permission required?
-
-## 🧾 Evidence
-
-Screenshots include:
-
-- IAM overview
-- Role configuration
-- Policy configuration
-- Permission details
-- Access testing
-
-> Screenshots are stored in the [`screenshots/`](./screenshots) directory.
-
-## 🎯 Outcome
-
-Learned how IAM policies and roles can be used to implement least-privilege access control for cloud workloads.
-
- 
-
- 
+* Learned how IAM controls access to resources.
+* Understood the Least Privilege Principle.
+* Practiced Linux users, groups and permissions.
+* Learned how permissions can be designed around required actions only.
+* Understood the difference between allowed and denied actions.
