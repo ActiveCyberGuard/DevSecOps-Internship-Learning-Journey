@@ -1,0 +1,40 @@
+---
+- name: Day 30 Final Project - Nginx Setup & Security Configuration
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install Nginx Package
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: false
+
+    - name: Ensure Nginx is Running and Enabled
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Deploy Custom HTML Web Page
+      ansible.builtin.copy:
+        dest: /var/www/html/index.html
+        content: |
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>DevSecOps Day 30 - Final Project</title>
+              <style>
+                  body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; background-color: #f4f4f9; }
+                  h1 { color: #2c3e50; }
+                  p { color: #7f8c8d; }
+              </style>
+          </head>
+          <body>
+              <h1>DevSecOps Ansible & Terraform Final Project</h1>
+              <p>Phase-6 Day-30 Successfully Deployed by Md. Al-Amin</p>
+          </body>
+          </html>
+        owner: root
+        group: root
+        mode: "0644"

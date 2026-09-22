@@ -1,0 +1,35 @@
+---
+# Maintained by: MD.AL-AMIN
+- name: Configure Nginx Web Server
+  hosts: web
+  become: true
+
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: true
+
+    - name: Ensure Nginx is running
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Create custom index page
+      ansible.builtin.copy:
+        dest: /var/www/html/index.html
+        content: |
+          <html>
+          <head>
+              <title>DevSecOps Ansible Lab</title>
+          </head>
+          <body>
+              <h1>Deployed using Ansible</h1>
+              <p>Phase 6 - Day 29 | Deployed by MD.AL-AMIN</p>
+          </body>
+          </html>
+        owner: root
+        group: root
+        mode: "0644"
