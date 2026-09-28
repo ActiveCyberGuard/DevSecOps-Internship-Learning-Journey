@@ -1,6 +1,6 @@
 # Day 32 — Pods & Workloads
 
-**Organized By:** MD.AL-AMIN
+ 
 
 ## What
 Deploy an Nginx web app, scale it, expose it with a Service, and practice breaking and fixing a selector.
@@ -41,3 +41,6 @@ Deploy an Nginx web app, scale it, expose it with a Service, and practice breaki
 
 ## Screenshots
 Deployment, pods, service, browser, scaled pods, broken selector, fixed selector.
+
+
+**Organized By:** MD.AL-AMIN
