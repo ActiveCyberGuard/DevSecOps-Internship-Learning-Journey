@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ .Release.Name }}-web
+
+spec:
+
+  replicas: {{ .Values.replicaCount }}
+
+  selector:
+    matchLabels:
+      app: devsecops-web
+
+  template:
+
+    metadata:
+      labels:
+        app: devsecops-web
+
+    spec:
+
+      containers:
+
+        - name: web
+
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+          ports:
+            - containerPort: 80
+
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+
+          readinessProbe:
+
+            httpGet:
+              path: /
+              port: 80
+
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          livenessProbe:
+
+            httpGet:
+              path: /
+              port: 80
+
+            initialDelaySeconds: 10
+            periodSeconds: 20
+
+          volumeMounts:
+
+            - name: web-content
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
+
+      volumes:
+
+        - name: web-content
+
+          configMap:
+            name: {{ .Release.Name }}-web-content

@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: devsecops-web
+  namespace: devsecops
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: devsecops-web
+
+  template:
+
+    metadata:
+      labels:
+        app: devsecops-web
+
+    spec:
+
+      containers:
+
+        - name: web
+
+          image: nginx:alpine
+
+          ports:
+            - containerPort: 80
+
+          resources:
+
+            requests:
+              cpu: "100m"
+              memory: "64Mi"
+
+            limits:
+              cpu: "500m"
+              memory: "128Mi"
+
+          readinessProbe:
+
+            httpGet:
+              path: /
+              port: 80
+
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          livenessProbe:
+
+            httpGet:
+              path: /
+              port: 80
+
+            initialDelaySeconds: 10
+            periodSeconds: 20
+
+          volumeMounts:
+
+            - name: web-content
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
+
+            - name: web-storage
+              mountPath: /data
+
+      volumes:
+
+        - name: web-content
+          configMap:
+            name: web-content
+
+        - name: web-storage
+          persistentVolumeClaim:
+            claimName: web-storage

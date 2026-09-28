@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: {{ .Release.Name }}-web-content
+  namespace: {{ .Release.Namespace }}
+
+data:
+
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>DevSecOps Final Project</title>
+
+      <style>
+        body {
+          font-family: Arial;
+          text-align: center;
+          padding: 100px;
+          background: #f4f7fb;
+        }
+
+        .card {
+          background: white;
+          padding: 40px;
+          border-radius: 15px;
+        }
+      </style>
+    </head>
+
+    <body>
+
+      <div class="card">
+
+        <h1>DevSecOps Kubernetes Final Project 🚀</h1>
+
+        <h2>Application is Running</h2>
+
+        <p>Kubernetes + Helm</p>
+
+        <p>
+          Deployment → Service → Ingress → Pod
+        </p>
+
+      </div>
+
+    </body>
+    </html>

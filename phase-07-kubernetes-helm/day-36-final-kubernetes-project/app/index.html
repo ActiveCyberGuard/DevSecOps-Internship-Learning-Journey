@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSecOps Kubernetes Project</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        .header {
+            background: #111827;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background: #dcfce7;
+            color: #166534;
+            font-weight: bold;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .item {
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 700px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>DevSecOps Kubernetes Project</h1>
+    <p>Phase 7 — Final Project</p>
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Application is Running 🚀 Developed By-MD.AL-AMIN</h2>
+
+        <p>
+            This web application is deployed on a local Kubernetes cluster
+            using Minikube.
+        </p>
+
+        <div class="status">
+            Kubernetes Deployment: Healthy
+        </div>
+
+        <div class="grid">
+
+            <div class="item">
+                <strong>Deployment</strong>
+                <p>2 Replicas</p>
+            </div>
+
+            <div class="item">
+                <strong>Service</strong>
+                <p>Cluster Networking</p>
+            </div>
+
+            <div class="item">
+                <strong>Ingress</strong>
+                <p>HTTP Routing</p>
+            </div>
+
+        </div>
+
+        <p style="margin-top:30px;">
+            Managed with Kubernetes + Helm
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>
