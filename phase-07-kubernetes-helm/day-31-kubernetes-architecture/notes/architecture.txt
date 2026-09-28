@@ -1,0 +1,12 @@
+Kubernetes
+    │
+    ├── Control Plane
+    │     ├── API Server
+    │     ├── Scheduler
+    │     ├── Controller Manager
+    │     └── etcd
+    │
+    └── Worker Node
+          ├── kubelet
+          ├── container runtime
+          └── Pods
