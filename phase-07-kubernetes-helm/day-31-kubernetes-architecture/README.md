@@ -1,6 +1,6 @@
 # Day 31 — Kubernetes Architecture
 
-**Organized By:** MD.AL-AMIN
+ 
 
 ## What
 Understand Kubernetes architecture and create a local cluster with Minikube to inspect it.
@@ -40,3 +40,6 @@ Kubernetes
 
 ## Screenshots
 Minikube status, cluster-info, nodes, namespaces, all pods.
+
+
+**Organized By:** MD.AL-AMIN
