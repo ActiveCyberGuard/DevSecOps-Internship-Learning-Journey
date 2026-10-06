@@ -1,0 +1,15 @@
+groups:
+  - name: final-observability-alerts
+
+    rules:
+
+      - alert: ApplicationDown
+        expr: up{job="final-observability-app"} == 0
+        for: 1m
+
+        labels:
+          severity: critical
+
+        annotations:
+          summary: "Final observability application is down"
+          description: "The Flask monitoring application is unavailable."
