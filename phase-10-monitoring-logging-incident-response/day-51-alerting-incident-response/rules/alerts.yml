@@ -1,0 +1,18 @@
+groups:
+
+  - name: devsecops-alerts
+
+    rules:
+
+      - alert: PrometheusTargetDown
+
+        expr: up == 0
+
+        for: 1m
+
+        labels:
+          severity: critical
+
+        annotations:
+          summary: "Monitoring target is down"
+          description: "A monitored target is unavailable."
