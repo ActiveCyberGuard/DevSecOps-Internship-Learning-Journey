@@ -1,0 +1,88 @@
+name: Phase 8 Security Checks
+
+on:
+  push:
+    paths:
+      - "phase-08-devsecops-appsec/**"
+      - ".github/workflows/phase8-security.yml"
+  pull_request:
+    paths:
+      - "phase-08-devsecops-appsec/**"
+      - ".github/workflows/phase8-security.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-sast:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Day 38 dependencies
+        run: python -m pip install -r phase-08-devsecops-appsec/day-38-sast-code-quality/requirements.txt
+
+      - name: Unit tests
+        run: python -m pytest phase-08-devsecops-appsec/day-38-sast-code-quality/tests -q
+
+      - name: SAST with Bandit
+        run: python -m bandit -r phase-08-devsecops-appsec/day-38-sast-code-quality/app
+
+      - name: Code quality with Ruff
+        run: python -m ruff check phase-08-devsecops-appsec/day-38-sast-code-quality/app phase-08-devsecops-appsec/day-38-sast-code-quality/tests
+
+  dependency-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pip-audit
+        run: python -m pip install pip-audit
+
+      - name: Audit dependencies
+        run: python -m pip_audit -r phase-08-devsecops-appsec/day-39-sca-dependency-security/requirements.txt
+
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full Git history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Gitleaks scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  container-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t devsecops-k8s-web:ci phase-08-devsecops-appsec/day-42-container-k8s-security/app
+
+      - name: Scan image with Trivy
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: devsecops-k8s-web:ci
+          format: table
+          exit-code: "1"
+          ignore-unfixed: true
+          vuln-type: os,library
+          severity: CRITICAL,HIGH
